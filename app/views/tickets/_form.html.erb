@@ -9,8 +9,7 @@
     <%= f.text_area :description, :rows => 10 %>
   </p>
   <p>
-  	<%= f.label :tag_names %>
-  	<%= f.text_field :tag_names %>
+    <%= render "tags/form", :f => f %>
   </p>
   <% number = 0 %>
   <div id='files'>
