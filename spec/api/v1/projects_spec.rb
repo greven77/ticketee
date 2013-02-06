@@ -6,7 +6,8 @@ describe "/api/v1/projects", :type => :api do
 	let!(:project) { Factory(:project) }
 
 	before do
-		user.permissions.create!(:action => "view", :thing => project)
+		user.admin = true
+		user.save
 	end
 
 	context "projects viewable by this user" do
