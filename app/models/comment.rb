@@ -6,6 +6,7 @@ class Comment < ActiveRecord::Base
   before_create :set_previous_state
 
   after_create :associate_tags_with_ticket
+  after_create :creator_watches_ticket
 
   belongs_to :ticket
   belongs_to :user
@@ -34,6 +35,10 @@ class Comment < ActiveRecord::Base
     end
     self.ticket.tags += tags
     self.ticket.save
+  end
+
+  def creator_watches_ticket
+    ticket.watchers << user
   end
 end
 
