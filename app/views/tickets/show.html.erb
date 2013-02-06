@@ -33,6 +33,14 @@
 
 </div>
 
+<span id="watchers">
+  <strong>Watchers:</strong>
+  <%= @ticket.watchers.map(&:email).to_sentence %>
+  <span id="watcher">
+    <%= toggle_watching_button %>
+  </span>
+</span>
+
 <h3>Comments</h3>
 <div id='comments'>
   <% if @ticket.comments.exists? %>
