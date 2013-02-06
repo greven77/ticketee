@@ -1,8 +1,14 @@
+<h2>Projects</h2>
 <% admins_only do %>
-	<%= link_to "New Project", new_project_path %>
+  <%= link_to "New Project", new_project_path %>
 <% end %>
-<ul>
-	<% @projects.each do |project| %>
-		<li><%= link_to project.name, project %></li>
-	<% end %>
+
+<ul id="projects">
+  <% @projects.each do |project| %>
+    <li class="<%= cycle("odd", "even") %>">
+    <h3><%= link_to project.name, project %></h3>
+    <%= project.description %>
+    </li>
+  <% end %>
 </ul>
+
