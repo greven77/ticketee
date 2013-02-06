@@ -7,6 +7,7 @@ feature "Creating comments" do
 
   before do
     define_permission!(user, "view", project)
+    define_permission!(user, "tag", project)
     Factory(:state, :name => "Open")
 
     sign_in_as!(user)
@@ -55,7 +56,7 @@ feature "Creating comments" do
 
   scenario "Adding a tag to a ticket" do
     click_link ticket.title
-    within("#ticket #{}tags") do
+    within("#ticket #tags") do
       page.should_not have_content("bug")
     end
 
