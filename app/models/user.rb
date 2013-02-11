@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend OmniauthCallbacks
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -36,6 +37,8 @@ class User < ActiveRecord::Base
   def display_name
     if twitter_id
       "#{twitter_display_name} (@#{twitter_screen_name})"
+    elsif github_id
+      "#{github_display_name} (#{github_user_name})"
     else
       email
     end

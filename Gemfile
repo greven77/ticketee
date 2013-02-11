@@ -40,6 +40,7 @@ gem 'cancan', '1.6.7'
 gem 'paperclip', '2.7.0'
 gem 'searcher', :git => "git://github.com/radar/searcher"
 gem 'omniauth-twitter', :git => 'https://github.com/arunagw/omniauth-twitter.git'
+gem 'omniauth-github', :github => "intridea/omniauth-github"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
