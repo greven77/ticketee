@@ -7,7 +7,9 @@ Ticketee::Application.routes.draw do
     end
   end
 
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => 
+  { :registrations => "registrations",
+    :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root :to => "projects#index"
   resources :projects do
